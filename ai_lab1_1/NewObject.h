@@ -11,7 +11,7 @@ public:
 	CAttribute(std::string iAttrName, std::string iAttrValue, int iAttrStat);
 	~CAttribute(void);
 	void setStat(int iAttrStat);
-	std::shared_ptr<CAttribute> inputAttribute();
+	void inputAttribute();
 private:
 	std::string aAttrName;
 	std::string aAttrValue;

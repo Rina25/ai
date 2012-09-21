@@ -24,6 +24,5 @@ void CWriteCommand::exec(void)
 		std::cout<<"\nֵשו גגמהטעü מבתוךע? y/n ";
 		std::cin>>lAnswer;
 	}while(lAnswer=='y');
-	std::cout<<"test";
 }
 

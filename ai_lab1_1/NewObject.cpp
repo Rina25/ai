@@ -24,7 +24,7 @@ void CAttribute::setStat(int iAttrStat)
 	aAttrStat=iAttrStat;
 }
 	
-std::shared_ptr<CAttribute> CAttribute::inputAttribute()
+void CAttribute::inputAttribute()
 {
 	std::cout<<"Введите название атрибута: ";
 	std::cin>>aAttrName;
@@ -35,7 +35,6 @@ std::shared_ptr<CAttribute> CAttribute::inputAttribute()
 	std::cin>>lAnswer;
 	if(lAnswer=='y') aAttrStat=4;
 	else aAttrStat=0;
-	return std::shared_ptr<CAttribute>(this);
 }
 
 
