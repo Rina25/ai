@@ -69,7 +69,7 @@ std::string CNewObject::getObjName(void)
 	return aObjName;
 }
 
-std::shared_ptr<CNewObject> CNewObject::inputObject()
+void CNewObject::inputObject()
 {
 	std::cout<<"Введите название объекта: ";
 	std::cin>>aObjName;
@@ -83,5 +83,4 @@ std::shared_ptr<CNewObject> CNewObject::inputObject()
 		std::cout<<"Ввести еще атрибут? y/n ";
 		std::cin>>lAnswer;
 	}while(lAnswer=='y');
-	return std::shared_ptr<CNewObject>(this);
 }

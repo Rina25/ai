@@ -23,6 +23,7 @@ void CWriteCommand::exec(void)
 		lObject->inputObject();
 		std::cout<<"\nֵשו גגמהטעü מבתוךע? y/n ";
 		std::cin>>lAnswer;
-	}while(lAnswer='y');
+	}while(lAnswer=='y');
+	std::cout<<"test";
 }
 
