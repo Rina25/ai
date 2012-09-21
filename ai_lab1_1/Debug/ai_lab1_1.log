@@ -1,4 +1,4 @@
-﻿Build started 9/21/2012 11:03:51 PM.
+﻿Build started 9/21/2012 11:36:22 PM.
      1>Project "E:\workspace\c++\ai_lab1_1\ai_lab1_1\ai_lab1_1.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\ai_lab1_1.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -34,4 +34,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.70
+Time Elapsed 00:00:01.86

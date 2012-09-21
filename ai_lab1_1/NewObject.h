@@ -12,6 +12,7 @@ public:
 	~CAttribute(void);
 	void setStat(int iAttrStat);
 	void inputAttribute();
+	std::string toString();
 private:
 	std::string aAttrName;
 	std::string aAttrValue;
@@ -28,7 +29,8 @@ public:
 
 	void setObjName(std::string iObjName);
 	std::string getObjName(void);
-	void inputObject(); 
+	void inputObject();
+	std::string toString();
 private:
 	std::string aObjName;
 	std::shared_ptr<std::vector<std::shared_ptr<CAttribute>>> aAttributes;

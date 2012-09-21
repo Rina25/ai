@@ -37,6 +37,10 @@ void CAttribute::inputAttribute()
 	else aAttrStat=0;
 }
 
+std::string CAttribute::toString()
+{
+	return aAttrName+": "+aAttrValue;
+}
 
 CNewObject::CNewObject(void)
 	:aObjName(""),aAttributes(0)
@@ -82,4 +86,13 @@ void CNewObject::inputObject()
 		std::cout<<"¬вести еще атрибут? y/n ";
 		std::cin>>lAnswer;
 	}while(lAnswer=='y');
+}
+
+std::string CNewObject::toString()
+{
+	std::string lString=aObjName+"\nјтрибуты:";
+	std::vector<std::shared_ptr<CAttribute>>::iterator it;
+	for(it=aAttributes->begin();it<aAttributes->end();it++)
+		lString+="\n"+(*it)->toString();
+	return lString;
 }
