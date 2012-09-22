@@ -21,6 +21,7 @@ void CWriteCommand::exec(void)
 		lObject=std::shared_ptr<CNewObject>(new CNewObject());
 		system("cls");
 		lObject->inputObject();
+		CDataBase::writeObject(lObject);
 		std::cout<<"\nֵשו גגמהטעü מבתוךע? y/n ";
 		std::cin>>lAnswer;
 	}while(lAnswer=='y');

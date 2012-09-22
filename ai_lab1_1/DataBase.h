@@ -8,7 +8,7 @@ class CDataBase
 public:
 	CDataBase(void);
 	~CDataBase(void);
-	static bool writeObject(CNewObject iObj);
+	static bool writeObject(std::shared_ptr<CNewObject> iObj);
 private:
 	static std::string aDBName;
 };

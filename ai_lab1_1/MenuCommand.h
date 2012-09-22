@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include "NewObject.h"
+#include "DataBase.h"
 
 class CMenuCommand
 {

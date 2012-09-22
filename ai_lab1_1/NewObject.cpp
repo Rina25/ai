@@ -72,6 +72,11 @@ std::string CNewObject::getObjName(void)
 	return aObjName;
 }
 
+std::shared_ptr<std::vector<std::shared_ptr<CAttribute>>> CNewObject::getAttributes()
+{
+	return aAttributes;
+}
+
 void CNewObject::inputObject()
 {
 	std::cout<<"Введите название объекта: ";

@@ -29,6 +29,7 @@ public:
 
 	void setObjName(std::string iObjName);
 	std::string getObjName(void);
+	std::shared_ptr<std::vector<std::shared_ptr<CAttribute>>> getAttributes();
 	void inputObject();
 	std::string toString();
 private:
