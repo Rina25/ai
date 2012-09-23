@@ -45,7 +45,7 @@ bool CDataBase::writeObject(std::shared_ptr<CNewObject> iObj)
 	return true;
 }
 
-bool CDataBase::writeAttr(std::string iObjName, std::shared_ptr<CAttribute>)
+bool CDataBase::writeAttr(std::string iObjName, std::shared_ptr<CAttribute> iAttr)
 {
 	CppSQLite3DB lDB;
 	try
@@ -58,12 +58,19 @@ bool CDataBase::writeAttr(std::string iObjName, std::shared_ptr<CAttribute>)
 		return false;
 	}
 	CppSQLite3Query lQuery;
+	CppSQLite3Query lQueryObjName;
 	try
 	{
+		lQuery=lDB.execQuery(("select id_obj from objects where Name_obj like \""+iObjName+"\"").c_str());
 		//поиск атрибута в БД и добавление если он отсутствует
-//		lQuery = lDB.execQuery(("select objects.[id_obj] from objects where objects.[Name_obj] like \""+iObj->getObjName()+"\"").c_str());
-//		if(lQuery.eof())
-//			lDB.execDML(("insert into object values(null, '"+iObj->getObjName()+"')").c_str());
+		lQuery = lDB.execQuery(("select * from attribute, objects where (attribute.[name_attr] like \""+iAttr->getAttrName()+"\" "\
+			") and (objects.[Name_obj] like \""+iObjName+"\") and (attribute.[id_obj]=objects.[id_obj])").c_str());
+		if(lQuery.eof())
+		{
+
+			lDB.execDML(("insert into attribute values(null, '"+iAttr->getAttrName()+"', "+lQueryObjName.fieldValue("id_obj")+\
+				+", "+iAttr->getAttrStat()+")").c_str());
+		}
 	}
 	catch(...)
 	{

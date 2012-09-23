@@ -23,6 +23,16 @@ void CAttribute::setStat(int iAttrStat)
 {
 	aAttrStat=iAttrStat;
 }
+
+int CAttribute::getAttrStat()
+{
+	return aAttrStat;
+}
+
+std::string CAttribute::getAttrName()
+{
+	return aAttrName;
+}
 	
 void CAttribute::inputAttribute()
 {

@@ -1,32 +1,85 @@
-﻿Build started 9/22/2012 10:40:45 PM.
+﻿Build started 9/23/2012 11:59:57 PM.
      1>Project "E:\workspace\c++\ai_lab1_1\ai_lab1_1\ai_lab1_1.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Touching "Debug\ai_lab1_1.unsuccessfulbuild".
        ClCompile:
-         d:\Program\Programming\MSVisualStudio\exec\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt DataBase.cpp
+         d:\Program\Programming\MSVisualStudio\exec\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt DataBase.cpp MenuCommand.cpp NewObject.cpp ai_lab1_1.cpp
+         NewObject.cpp
          DataBase.cpp
-         All outputs are up-to-date.
-       ManifestResourceCompile:
-         All outputs are up-to-date.
-       Link:
-         d:\Program\Programming\MSVisualStudio\exec\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\workspace\c++\ai_lab1_1\Debug\ai_lab1_1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\ai_lab1_1.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\workspace\c++\ai_lab1_1\Debug\ai_lab1_1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\workspace\c++\ai_lab1_1\Debug\ai_lab1_1.lib" /MACHINE:X86 Debug\ai_lab1_1.exe.embed.manifest.res
-         Debug\ai_lab1_1.obj
-         Debug\CppSQLite3.obj
-         Debug\DataBase.obj
-         Debug\MenuCommand.obj
-         Debug\NewObject.obj
-         Debug\sqlite3.obj
-       Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\ai_lab1_1.exe.embed.manifest" /manifest Debug\ai_lab1_1.exe.intermediate.manifest
-         All outputs are up-to-date.
-       LinkEmbedManifest:
-         All outputs are up-to-date.
-         ai_lab1_1.vcxproj -> E:\workspace\c++\ai_lab1_1\Debug\ai_lab1_1.exe
-       FinalizeBuildStatus:
-         Deleting file "Debug\ai_lab1_1.unsuccessfulbuild".
-         Touching "Debug\ai_lab1_1.lastbuildstate".
-     1>Done Building Project "E:\workspace\c++\ai_lab1_1\ai_lab1_1\ai_lab1_1.vcxproj" (build target(s)).
+     1>e:\workspace\c++\ai_lab1_1\ai_lab1_1\database.cpp(72): error C2784: 'std::_Vb_iterator<_Alloc> std::operator +(_Alloc::difference_type,std::_Vb_iterator<_Alloc>)' : could not deduce template argument for 'std::_Vb_iterator<_Alloc>' from 'int'
+                 d:\program\programming\msvisualstudio\exec\vc\include\vector(1985) : see declaration of 'std::operator +'
+     1>e:\workspace\c++\ai_lab1_1\ai_lab1_1\database.cpp(72): error C2784: 'std::_Vb_const_iterator<_Alloc> std::operator +(_Alloc::difference_type,std::_Vb_const_iterator<_Alloc>)' : could not deduce template argument for 'std::_Vb_const_iterator<_Alloc>' from 'int'
+                 d:\program\programming\msvisualstudio\exec\vc\include\vector(1878) : see declaration of 'std::operator +'
+     1>e:\workspace\c++\ai_lab1_1\ai_lab1_1\database.cpp(72): error C2784: 'std::_Vector_iterator<_Myvec> std::operator +(_Vector_iterator<_Myvec>::difference_type,std::_Vector_iterator<_Myvec>)' : could not deduce template argument for 'std::_Vector_iterator<_Myvec>' from 'int'
+                 d:\program\programming\msvisualstudio\exec\vc\include\vector(407) : see declaration of 'std::operator +'
+     1>e:\workspace\c++\ai_lab1_1\ai_lab1_1\database.cpp(72): error C2784: 'std::_Vector_const_iterator<_Myvec> std::operator +(_Vector_const_iterator<_Myvec>::difference_type,std::_Vector_const_iterator<_Myvec>)' : could not deduce template argument for 'std::_Vector_const_iterator<_Myvec>' from 'int'
+                 d:\program\programming\msvisualstudio\exec\vc\include\vector(276) : see declaration of 'std::operator +'
+     1>e:\workspace\c++\ai_lab1_1\ai_lab1_1\database.cpp(72): error C2782: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,const _Elem)' : template parameter '_Elem' is ambiguous
+                 d:\program\programming\msvisualstudio\exec\vc\include\string(153) : see declaration of 'std::operator +'
+                 could be 'int'
+                 or       'char'
+     1>e:\workspace\c++\ai_lab1_1\ai_lab1_1\database.cpp(72): error C2784: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,const _Elem *)' : could not deduce template argument for 'const _Elem *' from 'int'
+                 d:\program\programming\msvisualstudio\exec\vc\include\string(143) : see declaration of 'std::operator +'
+     1>e:\workspace\c++\ai_lab1_1\ai_lab1_1\database.cpp(72): error C2784: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const _Elem,std::basic_string<_Elem,_Traits,_Alloc> &&)' : could not deduce template argument for 'std::basic_string<_Elem,_Traits,_Alloc> &&' from 'int'
+                 d:\program\programming\msvisualstudio\exec\vc\include\string(133) : see declaration of 'std::operator +'
+     1>e:\workspace\c++\ai_lab1_1\ai_lab1_1\database.cpp(72): error C2784: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const _Elem *,std::basic_string<_Elem,_Traits,_Alloc> &&)' : could not deduce template argument for 'const _Elem *' from 'std::basic_string<_Elem,_Traits,_Ax>'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>,
+                     _Ax=std::allocator<char>
+                 ]
+                 d:\program\programming\msvisualstudio\exec\vc\include\string(123) : see declaration of 'std::operator +'
+     1>e:\workspace\c++\ai_lab1_1\ai_lab1_1\database.cpp(72): error C2784: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,std::basic_string<_Elem,_Traits,_Alloc> &&)' : could not deduce template argument for 'std::basic_string<_Elem,_Traits,_Alloc> &&' from 'int'
+                 d:\program\programming\msvisualstudio\exec\vc\include\string(109) : see declaration of 'std::operator +'
+     1>e:\workspace\c++\ai_lab1_1\ai_lab1_1\database.cpp(72): error C2784: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(std::basic_string<_Elem,_Traits,_Alloc> &&,const std::basic_string<_Elem,_Traits,_Alloc> &)' : could not deduce template argument for 'const std::basic_string<_Elem,_Traits,_Alloc> &' from 'int'
+                 d:\program\programming\msvisualstudio\exec\vc\include\string(99) : see declaration of 'std::operator +'
+     1>e:\workspace\c++\ai_lab1_1\ai_lab1_1\database.cpp(72): error C2784: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,std::basic_string<_Elem,_Traits,_Alloc> &&)' : could not deduce template argument for 'std::basic_string<_Elem,_Traits,_Alloc> &&' from 'int'
+                 d:\program\programming\msvisualstudio\exec\vc\include\string(89) : see declaration of 'std::operator +'
+     1>e:\workspace\c++\ai_lab1_1\ai_lab1_1\database.cpp(72): error C2782: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)' : template parameter '_Elem' is ambiguous
+                 d:\program\programming\msvisualstudio\exec\vc\include\string(75) : see declaration of 'std::operator +'
+                 could be 'int'
+                 or       'char'
+     1>e:\workspace\c++\ai_lab1_1\ai_lab1_1\database.cpp(72): error C2784: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem *)' : could not deduce template argument for 'const _Elem *' from 'int'
+                 d:\program\programming\msvisualstudio\exec\vc\include\string(61) : see declaration of 'std::operator +'
+     1>e:\workspace\c++\ai_lab1_1\ai_lab1_1\database.cpp(72): error C2784: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const _Elem,const std::basic_string<_Elem,_Traits,_Alloc> &)' : could not deduce template argument for 'const std::basic_string<_Elem,_Traits,_Alloc> &' from 'int'
+                 d:\program\programming\msvisualstudio\exec\vc\include\string(47) : see declaration of 'std::operator +'
+     1>e:\workspace\c++\ai_lab1_1\ai_lab1_1\database.cpp(72): error C2784: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const _Elem *,const std::basic_string<_Elem,_Traits,_Alloc> &)' : could not deduce template argument for 'const _Elem *' from 'std::basic_string<_Elem,_Traits,_Ax>'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>,
+                     _Ax=std::allocator<char>
+                 ]
+                 d:\program\programming\msvisualstudio\exec\vc\include\string(33) : see declaration of 'std::operator +'
+     1>e:\workspace\c++\ai_lab1_1\ai_lab1_1\database.cpp(72): error C2784: 'std::basic_string<_Elem,_Traits,_Alloc> std::operator +(const std::basic_string<_Elem,_Traits,_Alloc> &,const std::basic_string<_Elem,_Traits,_Alloc> &)' : could not deduce template argument for 'const std::basic_string<_Elem,_Traits,_Alloc> &' from 'int'
+                 d:\program\programming\msvisualstudio\exec\vc\include\string(19) : see declaration of 'std::operator +'
+     1>e:\workspace\c++\ai_lab1_1\ai_lab1_1\database.cpp(72): error C2784: 'std::_String_iterator<_Elem,_Traits,_Alloc> std::operator +(_String_iterator<_Elem,_Traits,_Alloc>::difference_type,std::_String_iterator<_Elem,_Traits,_Alloc>)' : could not deduce template argument for 'std::_String_iterator<_Elem,_Traits,_Alloc>' from 'int'
+                 d:\program\programming\msvisualstudio\exec\vc\include\xstring(434) : see declaration of 'std::operator +'
+     1>e:\workspace\c++\ai_lab1_1\ai_lab1_1\database.cpp(72): error C2784: 'std::_String_const_iterator<_Elem,_Traits,_Alloc> std::operator +(_String_const_iterator<_Elem,_Traits,_Alloc>::difference_type,std::_String_const_iterator<_Elem,_Traits,_Alloc>)' : could not deduce template argument for 'std::_String_const_iterator<_Elem,_Traits,_Alloc>' from 'int'
+                 d:\program\programming\msvisualstudio\exec\vc\include\xstring(293) : see declaration of 'std::operator +'
+     1>e:\workspace\c++\ai_lab1_1\ai_lab1_1\database.cpp(72): error C2784: 'std::_Array_iterator<_Ty,_Size> std::operator +(_Array_iterator<_Ty,_Size>::difference_type,std::_Array_iterator<_Ty,_Size>)' : could not deduce template argument for 'std::_Array_iterator<_Ty,_Size>' from 'int'
+                 d:\program\programming\msvisualstudio\exec\vc\include\xutility(2068) : see declaration of 'std::operator +'
+     1>e:\workspace\c++\ai_lab1_1\ai_lab1_1\database.cpp(72): error C2784: 'std::_Array_const_iterator<_Ty,_Size> std::operator +(_Array_const_iterator<_Ty,_Size>::difference_type,std::_Array_const_iterator<_Ty,_Size>)' : could not deduce template argument for 'std::_Array_const_iterator<_Ty,_Size>' from 'int'
+                 d:\program\programming\msvisualstudio\exec\vc\include\xutility(1929) : see declaration of 'std::operator +'
+     1>e:\workspace\c++\ai_lab1_1\ai_lab1_1\database.cpp(72): error C2784: 'std::reverse_iterator<_RanIt> std::operator +(_Diff,const std::reverse_iterator<_RanIt> &)' : could not deduce template argument for 'const std::reverse_iterator<_RanIt> &' from 'int'
+                 d:\program\programming\msvisualstudio\exec\vc\include\xutility(1323) : see declaration of 'std::operator +'
+     1>e:\workspace\c++\ai_lab1_1\ai_lab1_1\database.cpp(72): error C2784: 'std::_Revranit<_RanIt,_Base> std::operator +(_Diff,const std::_Revranit<_RanIt,_Base> &)' : could not deduce template argument for 'const std::_Revranit<_RanIt,_Base> &' from 'int'
+                 d:\program\programming\msvisualstudio\exec\vc\include\xutility(1136) : see declaration of 'std::operator +'
+     1>e:\workspace\c++\ai_lab1_1\ai_lab1_1\database.cpp(72): error C2676: binary '+' : 'std::basic_string<_Elem,_Traits,_Ax>' does not define this operator or a conversion to a type acceptable to the predefined operator
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>,
+                     _Ax=std::allocator<char>
+                 ]
+     1>e:\workspace\c++\ai_lab1_1\ai_lab1_1\database.cpp(72): error C2228: left of '.c_str' must have class/struct/union
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         ai_lab1_1.cpp
+         MenuCommand.cpp
+     1>Done Building Project "E:\workspace\c++\ai_lab1_1\ai_lab1_1\ai_lab1_1.vcxproj" (build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:01.93
+Time Elapsed 00:00:01.58
