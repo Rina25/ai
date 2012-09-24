@@ -2,6 +2,7 @@
 #include <string>
 #include "NewObject.h"
 #include "CppSQLite3.h"
+#include <sstream>
 
 class CDataBase
 {

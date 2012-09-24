@@ -59,6 +59,7 @@ bool CDataBase::writeAttr(std::string iObjName, std::shared_ptr<CAttribute> iAtt
 	}
 	CppSQLite3Query lQuery;
 	CppSQLite3Query lQueryObjName;
+	std::ostringstream lQueryStr;
 	try
 	{
 		lQuery=lDB.execQuery(("select id_obj from objects where Name_obj like \""+iObjName+"\"").c_str());
@@ -67,9 +68,17 @@ bool CDataBase::writeAttr(std::string iObjName, std::shared_ptr<CAttribute> iAtt
 			") and (objects.[Name_obj] like \""+iObjName+"\") and (attribute.[id_obj]=objects.[id_obj])").c_str());
 		if(lQuery.eof())
 		{
+			lQueryStr<<"insert into attribute values(null, '"<<iAttr->getAttrName()<<"', "<<lQueryObjName.fieldValue("id_obj")<<\
+				", "+iAttr->getAttrStat()<<")";
+			lDB.execDML((lQueryStr.str()).c_str());
+			lQuery = lDB.execQuery(("select * from attribute, objects where (attribute.[name_attr] like \""+iAttr->getAttrName()+"\" "\
+			") and (objects.[Name_obj] like \""+iObjName+"\") and (attribute.[id_obj]=objects.[id_obj])").c_str());
 
-			lDB.execDML(("insert into attribute values(null, '"+iAttr->getAttrName()+"', "+lQueryObjName.fieldValue("id_obj")+\
-				+", "+iAttr->getAttrStat()+")").c_str());
+		}
+		//статистическая обработка 4 вида
+		if(iAttr->getAttrStat()==4)
+		{
+			
 		}
 	}
 	catch(...)
