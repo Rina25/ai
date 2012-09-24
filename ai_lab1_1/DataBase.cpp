@@ -78,7 +78,7 @@ bool CDataBase::writeAttr(std::string iObjName, std::shared_ptr<CAttribute> iAtt
 		//статистическая обработка 4 вида
 		if(iAttr->getAttrStat()==4)
 		{
-			
+			if(atof(lQuery.fieldValue("min_value")))
 		}
 	}
 	catch(...)
