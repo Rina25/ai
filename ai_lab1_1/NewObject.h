@@ -13,6 +13,7 @@ public:
 	void setStat(int iAttrStat);
 	int getAttrStat();
 	std::string getAttrName();
+	std::string getAttrValue();
 	void inputAttribute();
 	std::string toString();
 private:

@@ -33,6 +33,11 @@ std::string CAttribute::getAttrName()
 {
 	return aAttrName;
 }
+
+std::string CAttribute::getAttrValue()
+{
+	return aAttrValue;
+}
 	
 void CAttribute::inputAttribute()
 {

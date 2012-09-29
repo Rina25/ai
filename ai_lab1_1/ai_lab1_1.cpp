@@ -25,4 +25,5 @@ int main()
 			break;
 		}
 	}while(number!=5);
+	return 0;
 }
