@@ -26,10 +26,10 @@ bool CDataBase::writeObject(std::shared_ptr<CNewObject> iObj)
 	try
 	{
 		//поиск объекта в БД и добавление если он отсутствует
-		lQuery = lDB.execQuery(("select objects.[id_obj] from objects where objects.[Name_obj] like \""+iObj->getObjName()+"\"").c_str());
+		lQuery = lDB.execQuery(("select objects.[id_obj] from objects where objects.[Name_obj] like \""+iObj->getObjName()+"\";").c_str());
 		if(lQuery.eof())
-			lDB.execDML(("insert into objects values(null, '"+iObj->getObjName()+"')").c_str());
-		lDB.close();
+			lDB.execDML(("insert into objects values(null, '"+iObj->getObjName()+"');").c_str());
+		lQuery.finalize();
 		//добавление или обновление атрибутов
 		std::shared_ptr<std::vector<std::shared_ptr<CAttribute>>> lAttrVec=iObj->getAttributes();
 		std::vector<std::shared_ptr<CAttribute>>::iterator it;
@@ -39,7 +39,7 @@ bool CDataBase::writeObject(std::shared_ptr<CNewObject> iObj)
 	catch(...)
 	{
 		std::cout<<"\nОшибка доступа к базе данных";
-		lDB.close();
+		//lDB.close();
 		return false;
 	}
 	//lDB.close();
@@ -70,7 +70,7 @@ bool CDataBase::writeAttr(std::string iObjName, std::shared_ptr<CAttribute> iAtt
 		{
 			lQuery=lDB.execQuery(("select id_obj from objects where Name_obj like \""+iObjName+"\"").c_str());;
 			lQueryStr<<"insert into attribute values(null, '"<<iAttr->getAttrName()<<"', "<<lQuery.fieldValue("id_obj")<<\
-				", "<<iAttr->getAttrStat()<<")";
+				", "<<iAttr->getAttrStat()<<");";
 			lDB.execDML((lQueryStr.str()).c_str());
 			lQuery = lDB.execQuery(("select * from attribute, objects where (attribute.[name_attr] like \""+iAttr->getAttrName()+"\" "\
 			") and (objects.[Name_obj] like \""+iObjName+"\") and (attribute.[id_obj]=objects.[id_obj])").c_str());
@@ -88,7 +88,7 @@ bool CDataBase::writeAttr(std::string iObjName, std::shared_ptr<CAttribute> iAtt
 			if(lQueryStat.eof())
 			{
 				lDB.execDML(("insert into statistics_4 values("+lIdAttrStr+", "+iAttr->getAttrValue()+\
-					", "+iAttr->getAttrValue()+")").c_str());
+					", "+iAttr->getAttrValue()+");").c_str());
 				return true;
 			}
 			if(atof(lQueryStat.fieldValue("min_value"))>atof((iAttr->getAttrValue()).c_str()))
