@@ -76,13 +76,29 @@ bool CDataBase::writeAttr(std::string iObjName, std::shared_ptr<CAttribute> iAtt
 			") and (objects.[Name_obj] like \""+iObjName+"\") and (attribute.[id_obj]=objects.[id_obj])").c_str());
 
 		}
+		std::ostringstream lIdAttrStream;
+		std::string lIdAttrStr;
+		lIdAttrStream<<lQuery.fieldValue("id_attr");
+		lIdAttrStr=lIdAttrStream.str();
+		//не нужна обработка
+		if(iAttr->getAttrStat()==0)
+		{
+			lQueryStat=lDB.execQuery(("select text_value from statistics where statistics.[id_attr]="\
+				+lIdAttrStr).c_str());
+			if(lQueryStat.eof())
+			{
+				lDB.execDML(("insert into statistics values("+lIdAttrStr+",' "+iAttr->getAttrValue()+\
+					";');").c_str());
+			}
+			else
+			{
+				lDB.execDML(("update statistics set text_value=text_value||' "+iAttr->getAttrValue()+\
+					";' where statistics.[id_attr]="+lIdAttrStr).c_str());
+			}
+		}
 		//статистическая обработка 4 вида
 		if(iAttr->getAttrStat()==4)
 		{
-			std::ostringstream lIdAttrStream;
-			std::string lIdAttrStr;
-			lIdAttrStream<<lQuery.fieldValue("id_attr");
-			lIdAttrStr=lIdAttrStream.str();
 			lQueryStat=lDB.execQuery(("select min_value, max_value from statistics_4 where statistics_4.[id_attr]="\
 				+lIdAttrStr).c_str());
 			if(lQueryStat.eof())
