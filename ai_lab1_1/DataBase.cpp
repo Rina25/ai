@@ -126,3 +126,8 @@ bool CDataBase::writeAttr(std::string iObjName, std::shared_ptr<CAttribute> iAtt
 	}
 	return true;
 }
+
+std::string CDataBase::findObject(std::shared_ptr<std::vector<std::shared_ptr<CAttribute>>> iAttributes)
+{
+
+}

@@ -20,3 +20,10 @@ public:
 	void exec(void);
 };
 
+class CTrainingCommand:public CMenuCommand
+{
+public:
+	CTrainingCommand(void){};
+	~CTrainingCommand(void){};
+	void exec(void);
+};
