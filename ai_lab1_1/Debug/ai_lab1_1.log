@@ -1,10 +1,12 @@
-﻿Build started 10/1/2012 7:52:50 PM.
+﻿Build started 10/1/2012 8:08:04 PM.
      1>Project "E:\workspace\c++\ai_lab1_1\ai_lab1_1\ai_lab1_1.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\ai_lab1_1.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         d:\Program\Programming\MSVisualStudio\exec\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt MenuCommand.cpp
+         d:\Program\Programming\MSVisualStudio\exec\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt MenuCommand.cpp ai_lab1_1.cpp
+         ai_lab1_1.cpp
          MenuCommand.cpp
+         Generating Code...
          All outputs are up-to-date.
        ManifestResourceCompile:
          All outputs are up-to-date.
@@ -29,4 +31,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.69
+Time Elapsed 00:00:02.33

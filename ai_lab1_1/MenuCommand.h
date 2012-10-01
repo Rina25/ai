@@ -36,3 +36,11 @@ public:
 	~CRecognitionCommand(void){};
 	void exec(void);
 };
+
+class CRecognitionWriteCommand:public CMenuCommand
+{
+public:
+	CRecognitionWriteCommand(){};
+	~CRecognitionWriteCommand(){};
+	void exec(void);
+};

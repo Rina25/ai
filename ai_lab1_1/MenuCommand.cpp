@@ -98,3 +98,37 @@ void CRecognitionCommand::exec(void)
 		std::cin>>lAnswer;
 	}while(lAnswer=='y'||lAnswer=='Y');
 }
+
+
+void CRecognitionWriteCommand::exec(void)
+{
+	char lAnswer;
+	std::shared_ptr<std::vector<std::shared_ptr<CAttribute>>> lAttributes = std::shared_ptr<std::vector<std::shared_ptr<CAttribute>>>(new std::vector<std::shared_ptr<CAttribute>>);
+	do
+	{
+		lAttributes->clear();
+		std::string lObjName;
+		system("cls");
+		do
+		{
+			std::shared_ptr<CAttribute> lAttribute=std::shared_ptr<CAttribute>(new CAttribute()); 
+			lAttribute->inputAttribute();
+			lAttributes->push_back(lAttribute);
+			std::cout<<"Ввести еще атрибут? y/n  ";
+			std::cin>>lAnswer;
+		}while(lAnswer=='y'||lAnswer=='Y');
+		lObjName=CDataBase::findObject(lAttributes);
+		if(lObjName=="")
+			std::cout<<"\nНеизвестный объект.";
+		else
+		{
+			std::cout<<"Предъявлен объект "<<lObjName;
+			std::shared_ptr<CNewObject> lObject=std::shared_ptr<CNewObject>(new CNewObject());
+			lObject->setAttributes(lAttributes);
+			lObject->setObjName(lObjName);
+			CDataBase::writeObject(lObject);
+		}
+		std::cout<<"\nПродолжить распознавание? Y/N  ";
+		std::cin>>lAnswer;
+	}while(lAnswer=='y'||lAnswer=='Y');
+}

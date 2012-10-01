@@ -26,6 +26,8 @@ int main()
 			cmd->exec();
 			break;
 		case 4:
+			cmd=std::shared_ptr<CRecognitionWriteCommand>(new CRecognitionWriteCommand());
+			cmd->exec();
 			break;
 		}
 	}while(number!=5);
