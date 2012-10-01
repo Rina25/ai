@@ -43,12 +43,15 @@ void CAttribute::inputAttribute()
 {
 	std::cout<<"Введите название атрибута: ";
 	std::cin>>aAttrName;
-	std::cout<<"Введите значение атрибута: ";
-	std::cin>>aAttrValue;
 	char lAnswer;
 	std::cout<<"Выполнять статистическую обработку атрибута? y/n";
 	std::cin>>lAnswer;
-	if(lAnswer=='y') aAttrStat=4;
+	if(lAnswer=='y') 
+	{
+		aAttrStat=4;
+		std::cout<<"Введите значение атрибута: ";
+		std::cin>>aAttrValue;
+	}
 	else aAttrStat=0;
 }
 
@@ -80,6 +83,11 @@ CNewObject::~CNewObject(void)
 void CNewObject::setObjName(std::string iObjName)
 {
 	aObjName=iObjName;
+}
+
+void CNewObject::setAttributes(std::shared_ptr<std::vector<std::shared_ptr<CAttribute>>> iAttributes)
+{
+	aAttributes=iAttributes;
 }
 
 std::string CNewObject::getObjName(void)

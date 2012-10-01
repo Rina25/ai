@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <map>
 #include "NewObject.h"
 #include "CppSQLite3.h"
 #include <sstream>

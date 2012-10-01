@@ -32,8 +32,8 @@ void CTrainingCommand::exec(void)
 {
 	char lAnswer;
 	std::shared_ptr<std::vector<std::shared_ptr<CAttribute>>> lAttributes = std::shared_ptr<std::vector<std::shared_ptr<CAttribute>>>(new std::vector<std::shared_ptr<CAttribute>>);
-	std::string lObjName;
 	std::shared_ptr<CNewObject> lObject=std::shared_ptr<CNewObject>(new CNewObject());
+	std::string lObjName;
 	do
 	{
 		system("cls");
@@ -46,11 +46,31 @@ void CTrainingCommand::exec(void)
 			std::cin>>lAnswer;
 		}while(lAnswer=='y'||lAnswer=='Y');
 		lObjName=CDataBase::findObject(lAttributes);
-		std::cout<<"Предъявлен объект "<<lObjName<<" ? Y/N";
-		std::cin>>lAnswer;
-		if(lAnswer=='y'||lAnswer=='Y')
-
+		lObject->setAttributes(lAttributes);
+		if(lObjName.empty())
+		{
+			std::cout<<"\nНеизвестный объект. Введите название объекта: ";
+			std::cin>>lObjName;
+			lObject->setObjName(lObjName);
+		}
+		else
+		{
+			std::cout<<"Предъявлен объект "<<lObjName<<" ? Y/N";
+			std::cin>>lAnswer;
+			if(lAnswer!='y'||lAnswer!='Y')
+			{
+				std::cout<<"\nВведите название объекта: ";
+				std::cin>>lObjName;
+			}
+			lObject->setObjName(lObjName);
+			CDataBase::writeObject(lObject);
+		}
 		std::cout<<"Продолжить обучение? Y/N";
 		std::cin>>lAnswer;
 	}while(lAnswer=='y'||lAnswer=='Y');
+}
+
+bool CTrainingCommand::cmp(const std::map<std::string, int>::iterator& iLVal, const std::map<std::string, int>::iterator& iRVal)
+{
+	return iLVal->second < iLVal->second;
 }

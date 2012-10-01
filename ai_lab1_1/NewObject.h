@@ -31,6 +31,7 @@ public:
 	~CNewObject(void);
 
 	void setObjName(std::string iObjName);
+	void setAttributes(std::shared_ptr<std::vector<std::shared_ptr<CAttribute>>> iAttributes);
 	std::string getObjName(void);
 	std::shared_ptr<std::vector<std::shared_ptr<CAttribute>>> getAttributes();
 	void inputObject();

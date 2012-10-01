@@ -18,7 +18,7 @@ int main()
 			cmd->exec();
 			break;
 		case 2:
-			cmd=std::shared_ptr<CWriteCommand>(new CTrainingCommand());
+			cmd=std::shared_ptr<CTrainingCommand>(new CTrainingCommand());
 			cmd->exec();
 			break;
 		case 3:

@@ -81,7 +81,7 @@ bool CDataBase::writeAttr(std::string iObjName, std::shared_ptr<CAttribute> iAtt
 		lIdAttrStream<<lQuery.fieldValue("id_attr");
 		lIdAttrStr=lIdAttrStream.str();
 		//не нужна обработка
-		if(iAttr->getAttrStat()==0)
+	/*	if(iAttr->getAttrStat()==0)
 		{
 			lQueryStat=lDB.execQuery(("select text_value from statistics where statistics.[id_attr]="\
 				+lIdAttrStr).c_str());
@@ -95,7 +95,7 @@ bool CDataBase::writeAttr(std::string iObjName, std::shared_ptr<CAttribute> iAtt
 				lDB.execDML(("update statistics set text_value=text_value||' "+iAttr->getAttrValue()+\
 					";' where statistics.[id_attr]="+lIdAttrStr).c_str());
 			}
-		}
+		}*/
 		//статистическая обработка 4 вида
 		if(iAttr->getAttrStat()==4)
 		{
@@ -129,5 +129,7 @@ bool CDataBase::writeAttr(std::string iObjName, std::shared_ptr<CAttribute> iAtt
 
 std::string CDataBase::findObject(std::shared_ptr<std::vector<std::shared_ptr<CAttribute>>> iAttributes)
 {
-
+	std::shared_ptr<std::map<std::string, int>> lObjMap=std::shared_ptr<std::map<std::string, int>>(new std::map<std::string, int>);
+	std::string lObjName;
+	return lObjName;
 }

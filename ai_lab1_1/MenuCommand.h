@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <algorithm>
 #include <stdlib.h>
 #include "NewObject.h"
 #include "DataBase.h"
@@ -26,4 +27,7 @@ public:
 	CTrainingCommand(void){};
 	~CTrainingCommand(void){};
 	void exec(void);
+private:
+	bool cmp(const std::map<std::string, int>::iterator& iLVal,const std::map<std::string, int>::iterator& iRVal);
+
 };
