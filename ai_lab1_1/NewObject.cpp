@@ -42,10 +42,13 @@ std::string CAttribute::getAttrValue()
 void CAttribute::inputAttribute()
 {
 	std::cout<<"Введите название атрибута: ";
-	std::cin>>aAttrName;
+	//std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	std::getline(std::cin,aAttrName);
+	//std::cin>>aAttrName;
 	char lAnswer;
 	std::cout<<"Выполнять статистическую обработку атрибута? y/n";
 	std::cin>>lAnswer;
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	if(lAnswer=='y') 
 	{
 		aAttrStat=4;
@@ -103,7 +106,8 @@ std::shared_ptr<std::vector<std::shared_ptr<CAttribute>>> CNewObject::getAttribu
 void CNewObject::inputObject()
 {
 	std::cout<<"Введите название объекта: ";
-	std::cin>>aObjName;
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	std::getline(std::cin,aObjName);
 	aAttributes=std::shared_ptr<std::vector<std::shared_ptr<CAttribute>>>(new std::vector<std::shared_ptr<CAttribute>>);
 	char lAnswer;
 	do
@@ -113,6 +117,7 @@ void CNewObject::inputObject()
 		aAttributes->push_back(lAttribute);
 		std::cout<<"Ввести еще атрибут? y/n ";
 		std::cin>>lAnswer;
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}while(lAnswer=='y');
 }
 
