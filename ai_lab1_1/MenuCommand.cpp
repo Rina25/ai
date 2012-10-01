@@ -70,7 +70,3 @@ void CTrainingCommand::exec(void)
 	}while(lAnswer=='y'||lAnswer=='Y');
 }
 
-bool CTrainingCommand::cmp(const std::map<std::string, int>::iterator& iLVal, const std::map<std::string, int>::iterator& iRVal)
-{
-	return iLVal->second < iLVal->second;
-}

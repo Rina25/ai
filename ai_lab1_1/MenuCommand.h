@@ -27,7 +27,4 @@ public:
 	CTrainingCommand(void){};
 	~CTrainingCommand(void){};
 	void exec(void);
-private:
-	bool cmp(const std::map<std::string, int>::iterator& iLVal,const std::map<std::string, int>::iterator& iRVal);
-
 };

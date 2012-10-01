@@ -130,6 +130,42 @@ bool CDataBase::writeAttr(std::string iObjName, std::shared_ptr<CAttribute> iAtt
 std::string CDataBase::findObject(std::shared_ptr<std::vector<std::shared_ptr<CAttribute>>> iAttributes)
 {
 	std::shared_ptr<std::map<std::string, int>> lObjMap=std::shared_ptr<std::map<std::string, int>>(new std::map<std::string, int>);
+	std::vector<std::shared_ptr<CAttribute>>::iterator it;
+	CppSQLite3DB lDB;
+	try
+	{
+		lDB.open(aDBName.c_str());
+	}
+	catch(...)
+	{
+		std::cout<<"\nОшибка открытия базы данных";
+		return false;
+	}
+	CppSQLite3Query lQuery;
+	try
+	{
+		for(it=iAttributes->begin();it<iAttributes->end();it++)
+		{
+			if((*it)->getAttrStat()==0)
+				lQuery=lDB.execQuery(("select objects.[Name_obj] from objects,attribute where objects.[id_obj]=attribute.[id_obj] "\
+				"and attribute.[name_attr]='"+(*it)->getAttrName()+"';").c_str());
+			if((*it)->getAttrStat()==4)
+				lQuery=lDB.execQuery(("select objects.[Name_obj] from objects,attribute,statistics_4 where objects.[id_obj]=attribute.[id_obj]"\
+				" and attribute.[name_attr]='"+(*it)->getAttrName()+"' and attribute.[id_attr]=statistics_4.[id_attr]"\
+				" and statistics_4.[max_value]>="+(*it)->getAttrValue()+" and statistics_4.[min_value]<="+(*it)->getAttrValue()+";").c_str());
+			while(!lQuery.eof())
+			{
+				(*lObjMap)[lQuery.fieldValue("Name_obj")]++;
+				lQuery.nextRow();
+			}
+		}
+		lQuery.finalize();
+	}
+	catch(...)
+	{
+		std::cout<<"\nОшибка доступа к БД";
+		return 0;
+	}
 	std::string lObjName;
 	return lObjName;
 }
