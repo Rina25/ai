@@ -28,3 +28,11 @@ public:
 	~CTrainingCommand(void){};
 	void exec(void);
 };
+
+class CRecognitionCommand:public CMenuCommand
+{
+public:
+	CRecognitionCommand(void){};
+	~CRecognitionCommand(void){};
+	void exec(void);
+};

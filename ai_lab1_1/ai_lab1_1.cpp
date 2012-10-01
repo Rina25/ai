@@ -22,6 +22,8 @@ int main()
 			cmd->exec();
 			break;
 		case 3:
+			cmd=std::shared_ptr<CRecognitionCommand>(new CRecognitionCommand());
+			cmd->exec();
 			break;
 		case 4:
 			break;

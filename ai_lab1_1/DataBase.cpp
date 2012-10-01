@@ -164,10 +164,10 @@ std::string CDataBase::findObject(std::shared_ptr<std::vector<std::shared_ptr<CA
 	catch(...)
 	{
 		std::cout<<"\nÎøèáêà äîñòóïà ê ÁÄ";
-		return 0;
+		return "";
 	}
 	if(lObjMap->empty())
-		return 0;
+		return "";
 	std::pair<std::string, int> lMax=(*lObjMap->begin());
 	std::map<std::string, int>::iterator itMap;
 	for(itMap=lObjMap->begin();itMap!=lObjMap->end();itMap++)
