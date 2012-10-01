@@ -57,7 +57,7 @@ void CTrainingCommand::exec(void)
 		{
 			std::cout<<"Предъявлен объект "<<lObjName<<" ? Y/N";
 			std::cin>>lAnswer;
-			if(lAnswer!='y'||lAnswer!='Y')
+			if(lAnswer!='y' && lAnswer!='Y')
 			{
 				std::cout<<"\nВведите название объекта: ";
 				std::cin>>lObjName;

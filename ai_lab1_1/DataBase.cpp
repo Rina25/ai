@@ -166,6 +166,13 @@ std::string CDataBase::findObject(std::shared_ptr<std::vector<std::shared_ptr<CA
 		std::cout<<"\nОшибка доступа к БД";
 		return 0;
 	}
+	if(lObjMap->empty())
+		return 0;
+	std::pair<std::string, int> lMax=(*lObjMap->begin());
+	std::map<std::string, int>::iterator itMap;
+	for(itMap=lObjMap->begin();itMap!=lObjMap->end();itMap++)
+		if(lMax.second<itMap->second)
+			lMax=*itMap;
 	std::string lObjName;
-	return lObjName;
+	return lMax.first;
 }
